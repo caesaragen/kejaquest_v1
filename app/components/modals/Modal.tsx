@@ -90,6 +90,7 @@ const Modal: React.FC<ModalProps> = ({
                             <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
                                 <button onClick={handleClose} className="p-1 border-0 hover:opacity-70 transition absolute left-9">
                                     <IoMdClose size={9} />
+                                    <span className="hidden">ButtonText</span>
                                 </button>
                                 <div className="text-lg font-semibold">
                                     {title}

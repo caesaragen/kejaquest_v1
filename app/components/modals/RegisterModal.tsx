@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import axios from 'axios'
-import { AiFillGithub } from 'react-icons/ai'
+import { AiFillFacebook, AiFillGithub } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
 import {
     FieldValues,
@@ -86,13 +86,29 @@ const RegisterModal = () => {
 
     const footerContent = (
         <div className='flex flex-col gap-4 mt-3'>
-            <hr/>
+            <hr />
             <Button
-            outline
-            label='Continue with Google'
-            icon={FcGoogle}
-            onClick={() => {}}
+                outline
+                label='Continue with Google'
+                icon={FcGoogle}
+                onClick={() => { }}
             />
+            <Button
+                outline
+                label='Continue with Facebook'
+                icon={AiFillFacebook}
+                onClick={() => { }}
+            />
+            <div className='text-neutral-500 text-center mt-4 font-light'>
+                <div className='text-center justify-center flex flex-row items-center gap-2'>
+                    <div>
+                        Already have an account?
+                    </div>
+                    <div onClick={registerModal.onClose} className='text-neutral-800 cursor-pointer hover:underline'>
+                        Login
+                    </div>
+                </div>
+            </div>
         </div>
     )
     return (

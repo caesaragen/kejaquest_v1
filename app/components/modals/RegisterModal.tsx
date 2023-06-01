@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { AiFillGithub } from 'react-icons/ai'
-import {FcGoogle} from 'react-icons/fc'
+import { FcGoogle } from 'react-icons/fc'
 import {
     FieldValues,
     SubmitHandler,
@@ -13,21 +13,22 @@ import useRegisterModal from '@/app/hooks/useRegisterModal'
 import Modal from './Modal'
 import Heading from '../Heading'
 import Input from '../inputs/Input'
+import { toast } from 'react-hot-toast'
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
 
     const [isLoading, setIsLoading] = useState(false)
 
     const {
-        register, 
+        register,
         handleSubmit,
         formState: {
             errors,
         }
     } = useForm<FieldValues>({
-        defaultValues:{
+        defaultValues: {
             name: '',
-            email:'',
+            email: '',
             password: ''
         }
     });
@@ -36,13 +37,13 @@ const RegisterModal = () => {
         setIsLoading(true)
 
         axios.post('/api/register', data)
-            .then(()=>{
+            .then(() => {
                 registerModal.onClose()
             })
             .catch((error) => {
-                console.log(error)
+                toast.error('Something went wrong')
             })
-            .finally(()=>{
+            .finally(() => {
                 setIsLoading(false)
             })
     }
@@ -50,29 +51,46 @@ const RegisterModal = () => {
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading
-            title='Welcome to KejaQuest'
-            subtitle='Create Account'
-            center
+                title='Welcome to KejaQuest'
+                subtitle='Create Account'
+                center
             />
             <Input
-            register={register}
-            id='email'
-            label='Email'
-            errors={errors}
-            disabled={isLoading}
-            required
+                register={register}
+                id='email'
+                label='Email'
+                errors={errors}
+                disabled={isLoading}
+                required
+            />
+            <Input
+                register={register}
+                id='name'
+                label='Name'
+                errors={errors}
+                disabled={isLoading}
+                required
+            />
+            <Input
+                register={register}
+                id='password'
+                label='Password'
+                type='password'
+                errors={errors}
+                disabled={isLoading}
+                required
             />
         </div>
     )
     return (
         <Modal
-        disabled={isLoading}
-        isOpen={registerModal.isOpen}
-        title='Register'
-        actionLabel='Continue'
-        onClose={registerModal.onClose}
-        onSubmit={handleSubmit(onSubmit)}
-        body={bodyContent}
+            disabled={isLoading}
+            isOpen={registerModal.isOpen}
+            title='Register'
+            actionLabel='Continue'
+            onClose={registerModal.onClose}
+            onSubmit={handleSubmit(onSubmit)}
+            body={bodyContent}
         />
     )
 }

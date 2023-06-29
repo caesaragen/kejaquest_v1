@@ -16,7 +16,7 @@ const Search = () => {
     "
     >
       <div className="flex flex-row items-center justify-between">
-        <div className="text-sm font-semibold px-6">Anywhere</div>
+        <div className="text-sm font-semibold px-6 text-rose-500">Anywhere</div>
         <div 
           className="
             hidden 
@@ -27,6 +27,7 @@ const Search = () => {
             border-x-[1px] 
             flex-1 
             text-center
+            text-gray-600
           "
         >
         Any Week
@@ -41,6 +42,7 @@ const Search = () => {
             flex-row 
             items-center 
             gap-3
+            text-gray-600
           "
         >
         <div className="hidden sm:block">

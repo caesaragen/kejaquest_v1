@@ -16,13 +16,13 @@ const UserMenu = () => {
             <div className="flex flex-row items-center gap-3">
                 <div
                     // onClick={()=> {console.log("cl")}}
-                    className="hidden md:block text-sm font-semibold py-3 rounded-full px-4 hover:bg-neutral-100 transition cursor-pointer"
+                    className="hidden md:block text-sm font-semibold py-3 rounded-full px-4 hover:bg-neutral-100 transition cursor-pointer text-rose-500"
                 >
                     KejaQuest Find your Home
                 </div>
                 <div
                     onClick={toggleOpen}
-                    className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hove:shadow-md transition"
+                    className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
                 >
                     <AiOutlineMenu />
                     <div className="hidden md:block">

@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import ClientOnly from './components/ClientOnly';
 import RegisterModal from './components/modals/RegisterModal';
 import ToastProvider from './providers/ToastProvider';
+import LoginModal from './components/modals/LoginModal';
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ClientOnly>
           <ToastProvider />
           <RegisterModal />
+          <LoginModal />
           <Navbar />
         </ClientOnly>
         {children}
